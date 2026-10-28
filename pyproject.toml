@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pciegen"
+version = "0.1.4"
+description = "Prepare PCIe RTL workspaces and generate RAM and controller wrappers"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["ramgen>=0.2.3", "vutils>=0.1.0"]
+
+[project.scripts]
+pciegen = "pciegen:main"
+
+[project.urls]
+Repository = "https://github.com/MaNan93/pciegen"
+
+[tool.setuptools]
+py-modules = ["pciegen"]
+
+[tool.setuptools.data-files]
+pciegen = ["examples/rule.csv"]
+
+[tool.uv.sources]
+ramgen = { path = "../ramgen", editable = true }
+vutils = { path = "../vutils", editable = true }
